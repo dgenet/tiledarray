@@ -1,7 +1,7 @@
 #include <TiledArray/tensor/tensor.h>
 #include "irregular_tiled_matrix_wrapper.h"
 
-void *tilearray_future_get_tile(void *f)
+void *tilearray_future_get_tile(void *f, void *g, void *h)
 {
     void *res;
     typedef TiledArray::Tensor<double, Eigen::aligned_allocator<double> > static_tile_type;

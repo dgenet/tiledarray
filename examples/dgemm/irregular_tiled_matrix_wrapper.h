@@ -1,11 +1,11 @@
 #ifndef IRREGULAR_TILED_MATRIX_WRAPPER_H__INCLUDED
 #define IRREGULAR_TILED_MATRIX_WRAPPER_H__INCLUDED
 
-#include "irregular_tiled_matrix.h"
+#include "parsec/data_dist/matrix/irregular_tiled_matrix.h"
 
 #include <tiledarray.h>
 
-extern "C" void *tilearray_future_get_tile(void *f);
+extern "C" void *tilearray_future_get_tile(void *f, void *g, void *h);
 
 namespace Parsec {
     
@@ -60,7 +60,7 @@ namespace Parsec {
                 }
             }
 
-            irregular_tiled_matrix_desc_init(&_ddesc, tile_coll_RealDouble,
+            irregular_tiled_matrix_desc_init(&_ddesc, matrix_RealDouble,
                                              de.world().nproc(), de.world().rank(),
                                              lm, ln,
                                              (tr.tiles_range().upbound_data()[1]-tr.tiles_range().lobound_data()[1]) * (tr.tiles_range().upbound_data()[0]-tr.tiles_range().lobound_data()[0]),

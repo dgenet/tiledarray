@@ -151,8 +151,6 @@ else(NOT COREBLAS_FOUND)
       else ("${_lib}" MATCHES "-l.*")
         list(APPEND COREBLAS_LDFLAGS ${_lib})
       endif()
-    else()
-        list(APPEND COREBLAS_LDFLAGS ${_lib})
     endif()
   endforeach()
 

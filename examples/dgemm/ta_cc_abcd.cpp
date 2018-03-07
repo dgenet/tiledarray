@@ -75,13 +75,13 @@ void cc_abcd(Parsec::Parsec *parsec,
 int main(int argc, char** argv) {
   int rc = 0;
 
-  {
-      std::cout << "gdb -p " << getpid() << std::endl;
-      volatile int loop = 1;
-      while(loop) {
-          sleep(1);
-      }
-  }
+  // {
+  //     std::cout << "gdb -p " << getpid() << std::endl;
+  //     volatile int loop = 1;
+  //     while(loop) {
+  //         sleep(1);
+  //     }
+  // }
   
   try {
 
@@ -96,7 +96,7 @@ int main(int argc, char** argv) {
 #endif
     if( NULL == parsec ) {
         // madness did not initialize parsec, it's using another scheduler for its tasks
-        std::vector<std::string> params({ "--", "--mca", "debug_verbose", "20" });
+      std::vector<std::string> params({ "--", "--mca", "debug_verbose", "20", "--dot", "dot.dot" });
         parsec = new Parsec::Parsec(params);
         parsec_initialized_by_madness = false;
     }
