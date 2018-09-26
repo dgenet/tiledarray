@@ -341,7 +341,7 @@ if( (NOT PKG_CONFIG_EXECUTABLE) OR (PKG_CONFIG_EXECUTABLE AND NOT DPLASMA_FOUND)
         # test link
         unset(DPLASMA_WORKS CACHE)
         include(CheckFunctionExists)
-        check_function_exists(setup_dplasma DPLASMA_WORKS)
+        check_function_exists(dplasma_dsumma DPLASMA_WORKS)
         mark_as_advanced(DPLASMA_WORKS)
 
         if(DPLASMA_WORKS)

@@ -13,6 +13,8 @@
 #include <madness/world/parsec_madness.h>
 #include <tiledarray.h>
 
+extern "C" void parsec_ptg_taskpool_wait( parsec_context_t *parsec, parsec_taskpool_t *tp);
+
 namespace Parsec {
 
     namespace {
