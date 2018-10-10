@@ -429,11 +429,13 @@ void tensor_contract_444(Parsec::Parsec *parsec,
                                  nrows, ncols);
   std::shared_ptr<TA::Pmap> pmap;
   auto t_eval = make_array_eval(t, t.world(), TA::DenseShape(),
-      proc_grid.make_row_phase_pmap(ninttiles),
-      TA::Permutation(), make_array_noop<Tile>());
+                                t.pmap(),
+                                TA::Permutation(), make_array_noop<Tile>());
   auto v_eval = make_array_eval(v, v.world(), TA::DenseShape(),
-      proc_grid.make_col_phase_pmap(ninttiles),
-      TA::Permutation(), make_array_noop<Tile>());
+                                v.pmap(),
+                                TA::Permutation(), make_array_noop<Tile>());
+  // note that DistEval futures are not yet even created ... DistEval::get does that
+  // but that's OK since DistEval objects use same pmap as the data arrays these will be cheap blocking calls
 
   //
   // make the result metadata
