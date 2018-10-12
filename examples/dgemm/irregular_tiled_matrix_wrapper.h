@@ -112,6 +112,7 @@ namespace Parsec {
         
         ~IrregularTiledMatrix() {
             _tiles.clear();
+            irregular_tiled_matrix_desc_destroy(&_ddesc);
         }
         
     private:
