@@ -446,6 +446,8 @@ void tensor_contract_444(Parsec::Parsec *parsec,
   //
   pmap.reset(new TA::detail::BlockedPmap(world, trange_tv.tiles_range().volume()));
 
+  parsec_devices_reset_load(parsec->context());
+  
   Parsec::IrregularTiledMatrix<array_tile_type, Policy, array_op_type>ddesc_t(t_eval, 1);
   Parsec::IrregularTiledMatrix<array_tile_type, Policy, array_op_type>ddesc_v(v_eval, 1);
 
